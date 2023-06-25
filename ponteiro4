@@ -1,0 +1,25 @@
+package main
+
+import "fmt"
+
+func somarUltimosDigitos(p *int) {
+	numero := *p
+
+	// Obtém os dois últimos dígitos
+	digito1 := numero % 10
+	numero /= 10
+	digito2 := numero % 10
+
+	// Calcula a soma dos dois últimos dígitos
+	soma := digito1 + digito2
+
+	*p = soma
+}
+
+func main() {
+	numero := 1234
+
+	somarUltimosDigitos(&numero)
+
+	fmt.Println("Valor do número após soma dos últimos dígitos:", numero)
+}
