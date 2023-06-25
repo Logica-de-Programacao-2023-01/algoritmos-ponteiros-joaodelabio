@@ -1,0 +1,22 @@
+package main
+
+import "fmt"
+
+func reverterString(p *string) {
+	runes := []rune(*p)
+	length := len(runes)
+
+	for i, j := 0, length-1; i < j; i, j = i+1, j-1 {
+		runes[i], runes[j] = runes[j], runes[i]
+	}
+
+	*p = string(runes)
+}
+
+func main() {
+	texto := "Olá, mundo!"
+
+	reverterString(&texto)
+
+	fmt.Println("Valor da string após reverso:", texto)
+}

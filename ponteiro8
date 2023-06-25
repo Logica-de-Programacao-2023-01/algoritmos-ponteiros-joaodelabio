@@ -1,0 +1,31 @@
+package main
+
+import "fmt"
+
+func modificarValor(p *int) {
+	*p = 42 // Modifica o valor da variável apontada pelo ponteiro
+}
+
+func main() {
+	// Alocando memória para uma variável usando a função new()
+	ponteiro := new(int)
+
+	// Atribuindo um valor inicial à variável através do ponteiro
+	*ponteiro = 10
+
+	// Chamando a função para modificar o valor da variável
+	modificarValor(ponteiro)
+
+	// Imprimindo o valor modificado
+	fmt.Println("Valor modificado:", *ponteiro)
+
+	// Liberando a memória alocada após o uso
+	freeMem(ponteiro)
+}
+
+func freeMem(p *int) {
+	// Liberando a memória usando a função built-in 'free'
+	// É importante lembrar de liberar a memória alocada manualmente
+	// para evitar vazamentos de memória
+	free(p)
+}

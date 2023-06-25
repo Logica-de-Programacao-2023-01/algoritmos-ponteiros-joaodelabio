@@ -1,0 +1,19 @@
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func atualizarMediaComPi(p *float64) {
+	media := (*p + math.Pi) / 2
+	*p = media
+}
+
+func main() {
+	numero := 3.14
+
+	atualizarMediaComPi(&numero)
+
+	fmt.Println("Valor do número após média com Pi:", numero)
+}
