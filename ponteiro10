@@ -1,0 +1,44 @@
+package main
+
+import "fmt"
+
+func preencherPrimos(s *[]int, tamanho int) {
+	if tamanho <= 0 {
+		return
+	}
+
+	primos := make([]int, 0, tamanho)
+	numero := 2
+
+	for len(primos) < tamanho {
+		if ehPrimo(numero) {
+			primos = append(primos, numero)
+		}
+		numero++
+	}
+
+	*s = primos
+}
+
+func ehPrimo(n int) bool {
+	if n < 2 {
+		return false
+	}
+
+	for i := 2; i*i <= n; i++ {
+		if n%i == 0 {
+			return false
+		}
+	}
+
+	return true
+}
+
+func main() {
+	var numerosPrimos []int
+	tamanho := 10
+
+	preencherPrimos(&numerosPrimos, tamanho)
+
+	fmt.Println("Números primos:", numerosPrimos)
+}
