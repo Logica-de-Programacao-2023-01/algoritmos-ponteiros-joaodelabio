@@ -1,0 +1,26 @@
+package main
+
+import "fmt"
+
+type Livro struct {
+	Titulo string
+	Autor  string
+	Preco  float64
+}
+
+func aplicarDesconto(l *Livro) {
+	desconto := l.Preco * 0.1
+	l.Preco -= desconto
+}
+
+func main() {
+	livro := Livro{
+		Titulo: "Livro X",
+		Autor:  "Autor Y",
+		Preco:  100.0,
+	}
+
+	aplicarDesconto(&livro)
+
+	fmt.Printf("Título: %s\nAutor: %s\nPreço com desconto: R$%.2f\n", livro.Titulo, livro.Autor, livro.Preco)
+}
